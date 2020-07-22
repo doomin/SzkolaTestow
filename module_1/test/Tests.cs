@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 
-namespace test_project{
+namespace szkola_testow{
 
     [TestFixture]
     public class Module1{

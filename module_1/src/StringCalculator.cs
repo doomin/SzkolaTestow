@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace test_project
+namespace szkola_testow
 {
     class StringCalculator
     {
