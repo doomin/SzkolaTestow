@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using FluentAssertions;
 
 namespace szkola_testow {
     public class VatServiceTests {
@@ -21,7 +22,7 @@ namespace szkola_testow {
             decimal result = vatService.GetGrossPriceForDefaultVat(product);
 
             //then
-            Assert.AreEqual(24.60M, result);
+            result.Should().Be(24.60M);
         }
 
         [TestCase(0.08, TestName="Should return gross price of a product for provided VAT - 8%")]
@@ -33,7 +34,7 @@ namespace szkola_testow {
             decimal result = vatService.GetGrossPrice(product.NetPrice, vat);
 
             //then
-            Assert.AreEqual(10.80M, result);
+            result.Should().Be(10.80M);
         }
 
         [TestCase(1.2, TestName="Should throw exception when provided VAT is too high")]
@@ -44,9 +45,13 @@ namespace szkola_testow {
             //when
             
             //then
-            Assert.Throws<Exception>( () => {
+            Action act = () => {
                 vatService.GetGrossPrice(product.NetPrice, vat);
-                });
+                };
+
+            act.Should().Throw<Exception>()                    
+                    .WithMessage("VAT needs to be lower!");
+
         }
 
         private Product GenerateProductwithPrice(decimal price){

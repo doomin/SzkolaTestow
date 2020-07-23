@@ -96,3 +96,7 @@
 /home/doomin/Testing/Szkola_Testow/szkola_testow/bin/Debug/netcoreapp3.1/szkola_testow.dll
 /home/doomin/Testing/Szkola_Testow/szkola_testow/bin/Debug/netcoreapp3.1/szkola_testow.pdb
 /home/doomin/Testing/Szkola_Testow/szkola_testow/obj/Debug/netcoreapp3.1/szkola_testow.genruntimeconfig.cache
+/home/doomin/Testing/Szkola_Testow/szkola_testow/bin/Debug/netcoreapp3.1/FluentAssertions.dll
+/home/doomin/Testing/Szkola_Testow/szkola_testow/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+/home/doomin/Testing/Szkola_Testow/szkola_testow/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+/home/doomin/Testing/Szkola_Testow/szkola_testow/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
