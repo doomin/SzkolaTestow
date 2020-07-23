@@ -16,6 +16,12 @@ namespace szkola_testow {
 
         public decimal GetGrossPrice(decimal netprice, decimal vatValue){
                 int SetPrecision = 4;
+
+                if(vatValue.CompareTo(decimal.One) == 1){
+                    throw (new Exception("VAT needs to be lower!"));
+                }
+                
+
                 return Math.Round(netprice * (1 + vatValue),SetPrecision);
         }
     }

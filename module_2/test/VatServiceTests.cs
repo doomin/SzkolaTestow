@@ -25,15 +25,28 @@ namespace szkola_testow {
         }
 
         [TestCase(0.08, TestName="Should return gross price of a product for provided VAT - 8%")]
-        public void ShouldReturnProductGrossPriceForDefaultVat(decimal vat){
+        public void ShouldReturnProductGrossPriceForProvidedVat(decimal vat){
             //given
             Product product = GenerateProductwithPrice(10.00M);
 
             //when
             decimal result = vatService.GetGrossPrice(product.NetPrice, vat);
-            
+
             //then
             Assert.AreEqual(10.80M, result);
+        }
+
+        [TestCase(1.2, TestName="Should throw exception when provided VAT is too high")]
+        public void ShouldThrowExceptionWhenVatTooHigh(decimal vat){
+            //given
+            Product product = GenerateProductwithPrice(10.00M);
+
+            //when
+            
+            //then
+            Assert.Throws<Exception>( () => {
+                vatService.GetGrossPrice(product.NetPrice, vat);
+                });
         }
 
         private Product GenerateProductwithPrice(decimal price){
