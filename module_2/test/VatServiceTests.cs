@@ -4,20 +4,42 @@ using System;
 namespace szkola_testow {
     public class VatServiceTests {
 
-        private Product product;
         private VatService vatService;
 
 
         [SetUp]
-        public void Setup(){
-            product = new Product();
+        public void PrepareVatService(){
             vatService = new VatService();
-            product.NetPrice = 100;
         }
 
-        [Test]
-        public void ShouldReturnProductGrossPrice(){
-            Assert.AreEqual(123, vatService.GetGrossPriceForDefaultVat(product));
+        [TestCase(TestName="Should return gross price of a product for default VAT - 23%")]
+        public void ShouldReturnProductGrossPriceForDefaultVat(){
+            //given
+            Product product = GenerateProductwithPrice(20.00M);
+
+            //when
+            decimal result = vatService.GetGrossPriceForDefaultVat(product);
+
+            //then
+            Assert.AreEqual(24.60M, result);
+        }
+
+        [TestCase(0.08, TestName="Should return gross price of a product for provided VAT - 8%")]
+        public void ShouldReturnProductGrossPriceForDefaultVat(decimal vat){
+            //given
+            Product product = GenerateProductwithPrice(10.00M);
+
+            //when
+            decimal result = vatService.GetGrossPrice(product.NetPrice, vat);
+            
+            //then
+            Assert.AreEqual(10.80M, result);
+        }
+
+        private Product GenerateProductwithPrice(decimal price){
+            Product product = new Product();
+            product.NetPrice = price;
+            return product;
         }
     }
 }

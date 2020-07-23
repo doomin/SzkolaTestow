@@ -14,9 +14,9 @@ namespace szkola_testow {
             return GetGrossPrice(product.NetPrice, vatValue);
         }
 
-        public decimal GetGrossPrice(decimal netPrice, decimal vatValue){
+        public decimal GetGrossPrice(decimal netprice, decimal vatValue){
                 int SetPrecision = 4;
-                return Math.Round(netPrice * (1 + vatValue),SetPrecision);
+                return Math.Round(netprice * (1 + vatValue),SetPrecision);
         }
     }
 }
