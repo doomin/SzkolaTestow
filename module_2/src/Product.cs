@@ -3,14 +3,11 @@ using System;
 namespace szkola_testow {
 
     public class Product {
-        private decimal _netPrice;
-        private int _id;
 
-        public decimal GetNetPrice()
-        { return _netPrice; }
+        public decimal NetPrice { get; set; }
 
-        public int GetId()
-        { return _id; }
+        public int Id
+        { get; }
 
 
     }

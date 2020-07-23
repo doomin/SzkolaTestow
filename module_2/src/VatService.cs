@@ -11,12 +11,12 @@ namespace szkola_testow {
         }
 
         public decimal GetGrossPriceForDefaultVat(Product product) {
-            return GetGrossPrice(product.GetNetPrice(), vatValue);
+            return GetGrossPrice(product.NetPrice, vatValue);
         }
 
         public decimal GetGrossPrice(decimal netPrice, decimal vatValue){
                 int SetPrecision = 4;
-                return Math.Round(netPrice + (netPrice * vatValue),SetPrecision);
+                return Math.Round(netPrice * (1 + vatValue),SetPrecision);
         }
     }
 }
