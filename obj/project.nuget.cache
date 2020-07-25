@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iycqkwKiE7o3gLO/XsOfYBsYgzrIoDaz1T9aOjzSJBU5x2RdU7bc+iXRf6Dhv8CboLwe83zAEIxMGjOGnt+Qbg==",
+  "dgSpecHash": "mpvfZxLW/9u8k/LwUziYHo+SEg2tXoqJqECLPeer5ApsCHIJP4QcA/OVQFsjkrvf21BsBxrJVMEweNoMk20CkQ==",
   "success": true,
   "projectFilePath": "/home/doomin/Testing/Szkola_Testow/szkola_testow/szkola_testow.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,14 @@
     "/home/doomin/.nuget/packages/newtonsoft.json/9.0.1/newtonsoft.json.9.0.1.nupkg.sha512",
     "/home/doomin/.nuget/packages/nuget.frameworks/5.0.0/nuget.frameworks.5.0.0.nupkg.sha512",
     "/home/doomin/.nuget/packages/nunit/3.12.0/nunit.3.12.0.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.console/3.11.1/nunit.console.3.11.1.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.consolerunner/3.11.1/nunit.consolerunner.3.11.1.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.extension.nunitprojectloader/3.6.0/nunit.extension.nunitprojectloader.3.6.0.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.extension.nunitv2driver/3.8.0/nunit.extension.nunitv2driver.3.8.0.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.extension.nunitv2resultwriter/3.6.0/nunit.extension.nunitv2resultwriter.3.6.0.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.extension.teamcityeventlistener/1.0.7/nunit.extension.teamcityeventlistener.1.0.7.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.extension.vsprojectloader/3.8.0/nunit.extension.vsprojectloader.3.8.0.nupkg.sha512",
+    "/home/doomin/.nuget/packages/nunit.runners/3.11.1/nunit.runners.3.11.1.nupkg.sha512",
     "/home/doomin/.nuget/packages/nunit3testadapter/3.17.0/nunit3testadapter.3.17.0.nupkg.sha512",
     "/home/doomin/.nuget/packages/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg.sha512",
     "/home/doomin/.nuget/packages/system.appcontext/4.1.0/system.appcontext.4.1.0.nupkg.sha512",

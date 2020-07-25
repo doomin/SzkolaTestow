@@ -13,16 +13,19 @@ namespace szkola_testow{
             calculator = new StringCalculator();
         }
 
+        [Category("module1")]
         [Test]
         public void ShouldReturnANumberWhenNumberGiven(){
             Assert.AreEqual(2, calculator.Add("2"));
         }
         
+        [Category("module1")]
         [Test]
         public void ShouldReturnSumOfTwoNumbersWhenTwoNumbersGiven(){
             Assert.AreEqual(3, calculator.Add("2,1"));
         }
 
+        [Category("module1")]
         [TestCase("1,2", 3)]
         [TestCase("1,2,3", 6)]
         [TestCase("1,2,3,4", 10)]
