@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/doomin/Testing/Szkola_Testow/szkola_testow/szkola_testow.csproj": {}
+    "C:\\Users\\domin\\source\\repos\\SzkolaTestow\\szkola_testow.csproj": {}
   },
   "projects": {
-    "/home/doomin/Testing/Szkola_Testow/szkola_testow/szkola_testow.csproj": {
+    "C:\\Users\\domin\\source\\repos\\SzkolaTestow\\szkola_testow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/doomin/Testing/Szkola_Testow/szkola_testow/szkola_testow.csproj",
+        "projectUniqueName": "C:\\Users\\domin\\source\\repos\\SzkolaTestow\\szkola_testow.csproj",
         "projectName": "szkola_testow",
-        "projectPath": "/home/doomin/Testing/Szkola_Testow/szkola_testow/szkola_testow.csproj",
-        "packagesPath": "/home/doomin/.nuget/packages/",
-        "outputPath": "/home/doomin/Testing/Szkola_Testow/szkola_testow/obj/",
+        "projectPath": "C:\\Users\\domin\\source\\repos\\SzkolaTestow\\szkola_testow.csproj",
+        "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\domin\\source\\repos\\SzkolaTestow\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/doomin/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -84,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
