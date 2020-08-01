@@ -1,6 +1,8 @@
 ﻿using FluentAssertions;
 using szkola_testow.module_3.src;
 using NUnit.Framework;
+using System;
+using FluentAssertions.Types;
 
 namespace szkola_testow.module_3.test
 {
@@ -22,14 +24,28 @@ namespace szkola_testow.module_3.test
         }
 
         [Category("module3")]
-        [Test]
-        public void ShouldReturn20When20PinsDown()
+        [TestCase(20, 0)]
+        public void ShouldReturn0WhenNoPinsDown(int pins, int numberOfThrows)
         {
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(1);
-            }
+            Roll(pins, numberOfThrows);
+            game.GetScore().Should().Be(0);
+        }
+
+        [Category("module3")]
+        [TestCase(1, 20)]
+        public void ShouldReturn20When20PinsDown(int pins, int numberOfThrows)
+        {
+            Roll(pins, numberOfThrows);
             game.GetScore().Should().Be(20);
+        }
+
+
+        private void Roll(int pins, int numberOfThrows)
+        {
+            for (int i = 0; i < numberOfThrows; i++)
+            {
+                game.Roll(pins);
+            }
         }
     }
 }
