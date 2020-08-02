@@ -95,5 +95,12 @@ namespace szkola_testow.module_3.StringCalculatorKata.test
         {
             stringCalculator.Add(input).Should().Be(result);
         }
+
+        [Category("StringCalculatorKata")]
+        [TestCase("//[****][%%%%][;][&&]\n1****2%%%%3;4&&1", 11)]
+        public void ShouldHandleMultipleDelimitersLongerThanOneCharIfPassedInInput(string input, int result)
+        {
+            stringCalculator.Add(input).Should().Be(result);
+        }
     }
 }
