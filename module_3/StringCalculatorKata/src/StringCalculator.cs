@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace szkola_testow.module_3.StringCalculatorKata.src
 {
@@ -27,12 +28,12 @@ namespace szkola_testow.module_3.StringCalculatorKata.src
                 CollectNegatvies(negativesArr, supportInt);
             }
 
-            HandleNegativesException();
+            NewMethod();
 
             return result;
         }
 
-        private void HandleNegativesException()
+        private void NewMethod()
         {
             if (negativesArr.Count > 0)
             {
@@ -70,9 +71,20 @@ namespace szkola_testow.module_3.StringCalculatorKata.src
         {
             char delim = ',';
 
+            string pattern = @"(?<=\[)(.*?)(?=\])";
+            Match m = Regex.Match(input, pattern, RegexOptions.IgnoreCase);
+
+
             if (input.Substring(0, 1).ToCharArray()[0] == '/')
             {
-                delim = input.Substring(0, 3).ToCharArray()[2];
+                if (m.Success)
+                {
+                    delim = m.Value.ToCharArray()[0];
+                }
+                else
+                {
+                    delim = input.Substring(0, 3).ToCharArray()[2];
+                }
             };
 
             char[] delims = new[] { delim, '\n' };
