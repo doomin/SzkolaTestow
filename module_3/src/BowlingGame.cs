@@ -8,7 +8,7 @@ namespace szkola_testow.module_3.src
     class BowlingGame
     {
         int roll = 0;
-        private int[] rolls = new int[21];
+        private int[] rolls = new int[22];
 
         public int GetScore()
         {
@@ -21,7 +21,7 @@ namespace szkola_testow.module_3.src
                     score += 10 + rolls[cursor + 1] + rolls[cursor + 2];
                     cursor++;
                 }
-                if (IsSpare(cursor))
+                else if (IsSpare(cursor))
                 {
                     score += 10 + rolls[cursor + 2];
                     cursor += 2;
@@ -48,6 +48,5 @@ namespace szkola_testow.module_3.src
         {
             return rolls[cursor] == 10;
         }
-
     }
 }

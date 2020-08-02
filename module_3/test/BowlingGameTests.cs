@@ -27,15 +27,15 @@ namespace szkola_testow.module_3.test
         [TestCase(20, 0)]
         public void ShouldReturn0WhenNoPinsDown(int pins, int numberOfThrows)
         {
-            TestRoll(pins, numberOfThrows);
+            TestRollForWholeGame(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
             game.GetScore().Should().Be(0);
         }
 
         [Category("BowlingKata")]
-        [TestCase(1, 20)]
-        public void ShouldReturn20When20PinsDown(int pins, int numberOfThrows)
+        [Test]
+        public void ShouldReturn20When20PinsDown()
         {
-            TestRoll(pins, numberOfThrows);
+            TestRollForWholeGame(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
             game.GetScore().Should().Be(20);
         }
 
@@ -43,9 +43,7 @@ namespace szkola_testow.module_3.test
         [Test]
         public void ShouldReturnSpare()
         {
-            TestRoll(5, 2);
-            TestRoll(4, 1);
-            TestRoll(0, 17);
+            TestRollForWholeGame(5, 5, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             game.GetScore().Should().Be(18);
         }
 
@@ -55,6 +53,14 @@ namespace szkola_testow.module_3.test
         {
             TestRollForWholeGame(10, 4,4, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
             game.GetScore().Should().Be(26);
+        }
+
+        [Category("BowlingKata")]
+        [Test]
+        public void ShouldScoreMasterStrike()
+        {
+            TestRollForWholeGame(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+            game.GetScore().Should().Be(300);
         }
 
         private void TestRollForWholeGame(params int[] pins)
