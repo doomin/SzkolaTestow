@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
+using System;
 using System.Security.Cryptography;
 
 namespace szkola_testow.module_3.StringCalculatorKata.test
@@ -15,17 +16,17 @@ namespace szkola_testow.module_3.StringCalculatorKata.test
         }
 
         [Category("StringCalculatorKata")]
-        [Test]
-        public void ShouldReturnZeroWhenPasingEmptyString()
+        [TestCase("",0)]
+        public void ShouldReturnZeroWhenPasingEmptyString(string input, int result)
         {
-            stringCalculator.Add("").Should().Be(0);
+            stringCalculator.Add(input).Should().Be(result);
         }
 
         [Category("StringCalculatorKata")]
-        [Test]
-        public void ShouldReturnOneWhenPasingNumberOne()
+        [TestCase("1", 1)]
+        public void ShouldReturnOneWhenPasingNumberOne(string input, int result)
         {
-            stringCalculator.Add("1").Should().Be(1);
+            stringCalculator.Add(input).Should().Be(result);
         }
 
         [Category("StringCalculatorKata")]
@@ -37,10 +38,42 @@ namespace szkola_testow.module_3.StringCalculatorKata.test
         }
 
         [Category("StringCalculatorKata")]
-        [Test]
-        public void ShouldHandleNewLinCharInInputString()
+        [TestCase("1\n2,3", 6)]
+        public void ShouldHandleNewLinCharInInputString(string input, int result)
         {
-            stringCalculator.Add("1\n2,3").Should().Be(6);
+            stringCalculator.Add(input).Should().Be(result);
         }
+
+        [Category("StringCalculatorKata")]
+        [TestCase("//;\n1;2", 3)]
+        public void ShouldSumInputNumbersSplitByDelimiterPassedAsFirstChar(string input, int result)
+        {
+            stringCalculator.Add(input).Should().Be(result);
+        }
+
+        [Category("StringCalculatorKata")]
+        [TestCase("//;\n1;2;-2", "Negatives not allowed: -2")]
+        public void ShouldThrowExceptionWhenNegativeNumberPassed(string input, string msg)
+        {
+            Action act = () => {
+                stringCalculator.Add(input);
+            };
+
+            act.Should().Throw<Exception>()
+                    .WithMessage(msg);
+        }
+
+        [Category("StringCalculatorKata")]
+        [TestCase("//;\n-1;2;-2", "Negatives not allowed: -1,-2")]
+        public void ShouldShowNegativesInExceptionMEssageWhenNegativesPassed(string input, string msg)
+        {
+            Action act = () => {
+                stringCalculator.Add(input);
+            };
+
+            act.Should().Throw<Exception>()
+                    .WithMessage(msg);
+        }
+
     }
 }
