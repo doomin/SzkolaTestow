@@ -9,6 +9,7 @@ namespace szkola_testow.module_3.StringCalculatorKata.src
     class StringCalculator
     {
         private int result = 0;
+        private List<int> negativesArr = new List<int>();
 
         public int Add(string input)
         {
@@ -17,32 +18,46 @@ namespace szkola_testow.module_3.StringCalculatorKata.src
                 return result;
             }
 
-            List<int> negativesArr = new List<int>();
-
             foreach (string number in SplitStringInput(input))
             {
-                int supportInt = ParseStringToInt(number);               
-               
-                if (supportInt >= 0)
-                {
-                    result += supportInt;
-                }
-                else
-                {
-                    negativesArr.Add(supportInt);
-                }
+                int supportInt = ParseStringToInt(number);
+
+                CalculateResult(supportInt);
+
+                CollectNegatvies(negativesArr, supportInt);
             }
 
+            HandleNegativesException();
+
+            return result;
+        }
+
+        private void HandleNegativesException()
+        {
             if (negativesArr.Count > 0)
             {
                 string combindedString = string.Join(",", negativesArr.ToArray());
                 throw (new Exception(String.Format("Negatives not allowed: {0}", combindedString)));
             }
-
-            return result;
         }
 
-        private int ParseStringToInt(string number)
+        private void CalculateResult(int supportInt)
+        {
+            if (supportInt >= 0 && supportInt < 1000)
+            {
+                result += supportInt;
+            }
+        }
+
+        private static void CollectNegatvies(List<int> negativesArr, int supportInt)
+        {
+            if (supportInt < 0)
+            {
+                negativesArr.Add(supportInt);
+            }
+        }
+
+        private static int ParseStringToInt(string number)
         {
             if(int.TryParse(number, out int n))
             {
@@ -51,7 +66,7 @@ namespace szkola_testow.module_3.StringCalculatorKata.src
             return 0;
         }
 
-        private string[] SplitStringInput(string input)
+        private static string[] SplitStringInput(string input)
         {
             char delim = ',';
 

@@ -75,5 +75,11 @@ namespace szkola_testow.module_3.StringCalculatorKata.test
                     .WithMessage(msg);
         }
 
+        [Category("StringCalculatorKata")]
+        [TestCase("//;\n1;2;1000", 3)]
+        public void ShouldIgnoreNumberLargerThan1000(string input, int result)
+        {
+            stringCalculator.Add(input).Should().Be(result);
+        }
     }
 }
