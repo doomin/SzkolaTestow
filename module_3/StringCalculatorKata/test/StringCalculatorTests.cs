@@ -84,7 +84,14 @@ namespace szkola_testow.module_3.StringCalculatorKata.test
 
         [Category("StringCalculatorKata")]
         [TestCase("//[***]\n1***2***3", 6)]
-        public void ShouldSplitInpitStringByAntLegnthDelmiter(string input, int result)
+        public void ShouldSplitInputStringByAntLegnthDelmiter(string input, int result)
+        {
+            stringCalculator.Add(input).Should().Be(result);
+        }
+
+        [Category("StringCalculatorKata")]
+        [TestCase("//[*][%]\n1*2%3", 6)]
+        public void ShouldHandleMultipleDelimitersIfPassedInInput(string input, int result)
         {
             stringCalculator.Add(input).Should().Be(result);
         }

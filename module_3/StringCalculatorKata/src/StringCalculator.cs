@@ -28,12 +28,12 @@ namespace szkola_testow.module_3.StringCalculatorKata.src
                 CollectNegatvies(negativesArr, supportInt);
             }
 
-            NewMethod();
+            HandleNegativesException();
 
             return result;
         }
 
-        private void NewMethod()
+        private void HandleNegativesException()
         {
             if (negativesArr.Count > 0)
             {
@@ -69,25 +69,26 @@ namespace szkola_testow.module_3.StringCalculatorKata.src
 
         private static string[] SplitStringInput(string input)
         {
-            char delim = ',';
+            char[] delims = new[] { ',', '\n' };
 
-            string pattern = @"(?<=\[)(.*?)(?=\])";
-            Match m = Regex.Match(input, pattern, RegexOptions.IgnoreCase);
-
+            Regex pattern =new Regex(@"(?<=\[)(.*?)(?=\])");
 
             if (input.Substring(0, 1).ToCharArray()[0] == '/')
             {
-                if (m.Success)
+                if (pattern.Matches(input).Count>0)
                 {
-                    delim = m.Value.ToCharArray()[0];
+                    foreach (Match match in pattern.Matches(input))
+                    {
+                        Array.Resize(ref delims, delims.Length + 1);
+                        delims[delims.Length - 1] = match.Value.ToCharArray()[0];
+                    }
                 }
                 else
                 {
-                    delim = input.Substring(0, 3).ToCharArray()[2];
+                    char delim = input.Substring(0, 3).ToCharArray()[2];
+                    delims = new[] { delim, '\n' };
                 }
-            };
-
-            char[] delims = new[] { delim, '\n' };
+            }
             return input.Split(delims);
         }
     }
