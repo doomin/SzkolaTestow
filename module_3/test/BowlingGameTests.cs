@@ -16,31 +16,56 @@ namespace szkola_testow.module_3.test
             game = new BowlingGame();
         }
 
-        [Category("module3")]
+        [Category("BowlingKata")]
         [Test]
         public void ShouldReturnZeroWhenNoRollsDone()
         {           
             game.GetScore().Should().Be(0);
         }
 
-        [Category("module3")]
+        [Category("BowlingKata")]
         [TestCase(20, 0)]
         public void ShouldReturn0WhenNoPinsDown(int pins, int numberOfThrows)
         {
-            Roll(pins, numberOfThrows);
+            TestRoll(pins, numberOfThrows);
             game.GetScore().Should().Be(0);
         }
 
-        [Category("module3")]
+        [Category("BowlingKata")]
         [TestCase(1, 20)]
         public void ShouldReturn20When20PinsDown(int pins, int numberOfThrows)
         {
-            Roll(pins, numberOfThrows);
+            TestRoll(pins, numberOfThrows);
             game.GetScore().Should().Be(20);
         }
 
+        [Category("BowlingKata")]
+        [Test]
+        public void ShouldReturnSpare()
+        {
+            TestRoll(5, 2);
+            TestRoll(4, 1);
+            TestRoll(0, 17);
+            game.GetScore().Should().Be(18);
+        }
 
-        private void Roll(int pins, int numberOfThrows)
+        [Category("BowlingKata")]
+        [Test]
+        public void ShouldScoreStrike()
+        {
+            TestRollForWholeGame(10, 4,4, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+            game.GetScore().Should().Be(26);
+        }
+
+        private void TestRollForWholeGame(params int[] pins)
+        {
+            foreach (int pin in pins)
+            {
+                game.Roll(pin);
+            };
+        }
+
+        private void TestRoll(int pins, int numberOfThrows)
         {
             for (int i = 0; i < numberOfThrows; i++)
             {
